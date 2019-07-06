@@ -51,7 +51,6 @@ module.exports = {
         siteUrl: 'https://lauramarinab.github.io/cibamarsi'
       }
     },
-    'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
