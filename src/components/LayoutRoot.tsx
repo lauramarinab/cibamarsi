@@ -3,9 +3,9 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const StyledLayoutRoot = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; */
 `
 
 interface LayoutRootProps {

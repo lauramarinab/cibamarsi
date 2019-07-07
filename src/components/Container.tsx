@@ -1,15 +1,12 @@
 import * as React from 'react'
 
-import { widths } from '../styles/variables'
-import { getEmSize } from '../styles/mixins'
 import styled from 'styled-components'
 
 const StyledContainer = styled.div`
-  position: relative;
+  /* position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: auto;
-  max-width: ${getEmSize(widths.lg)}em;
+  width: auto;*/
 `
 
 interface ContainerProps {

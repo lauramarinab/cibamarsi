@@ -2,9 +2,9 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const StyledLayoutMain = styled.main`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1; */
 `
 
 interface LayoutMainProps {
