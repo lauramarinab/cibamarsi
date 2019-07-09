@@ -8,6 +8,8 @@ import LayoutRoot from '../components/LayoutRoot'
 import LayoutMain from '../components/LayoutMain'
 import Cibamarsi from '../UI/Cibamarsi'
 
+const favicon = '../assets/lm-favicon.grigio.png'
+
 interface StaticQueryProps {
   site: {
     siteMetadata: {
@@ -40,6 +42,10 @@ const IndexLayout: React.FC = ({ children }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords }
           ]}
         />
+        <Helmet>
+          <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet" />
+          <link rel="shortcut icon" href={favicon} />
+        </Helmet>
         <Cibamarsi />
         <LayoutMain>{children}</LayoutMain>
       </LayoutRoot>
