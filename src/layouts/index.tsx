@@ -44,6 +44,8 @@ const IndexLayout: React.FC = ({ children }) => (
         />
         <Helmet>
           <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Muli:800&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" href={favicon} />
         </Helmet>
         <Cibamarsi />

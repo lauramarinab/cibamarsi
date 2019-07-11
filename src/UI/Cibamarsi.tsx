@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     stroke-width: 1;
     fill: none;
     user-select: none;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 `
 
@@ -30,7 +30,7 @@ const Cibamarsi: React.FC = () => {
 
   const handleResize = useRef(() => {
     const newViewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-    setState({ ...state, viewportWidth: newViewportWidth })
+    setState(state => ({ ...state, viewportWidth: newViewportWidth }))
   })
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Cibamarsi: React.FC = () => {
   return (
     <Wrapper id={idWrapperRef.current}>
       <svg height={state.textHeight} width="100vw">
-        <text x={-10} y={state.textHeight - 20} id={idTitleRef.current} dominant-baseline="start">
+        <text x={-10} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
           cibamarsi
         </text>
       </svg>
