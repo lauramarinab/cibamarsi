@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { EdgeNodeRecipe } from '../type/EdgeNodeRecipe'
+import { LinkStyled } from '../UI/Typography'
 
-const RecipeList: React.FC<{ recipes: Array<any> }> = ({ recipes }) => {
+const RecipeList: React.FC<{ recipes: Array<EdgeNodeRecipe> }> = ({ recipes }) => {
   return (
     <>
       {recipes.map(r => {
@@ -9,9 +10,9 @@ const RecipeList: React.FC<{ recipes: Array<any> }> = ({ recipes }) => {
 
         return (
           <div key={recipe.fields.slug}>
-            <Link to={recipe.fields.slug}>
+            <LinkStyled to={recipe.fields.slug}>
               <span>{recipe.frontmatter.title}</span>
-            </Link>
+            </LinkStyled>
           </div>
         )
       })}

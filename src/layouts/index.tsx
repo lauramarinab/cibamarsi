@@ -6,7 +6,6 @@ import '../styles/index.css'
 
 import LayoutRoot from '../components/LayoutRoot'
 import LayoutMain from '../components/LayoutMain'
-import Cibamarsi from '../UI/Cibamarsi'
 
 const favicon = '../assets/lm-favicon.grigio.png'
 
@@ -44,11 +43,9 @@ const IndexLayout: React.FC = ({ children }) => (
         />
         <Helmet>
           <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Muli:800&display=swap" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" href={favicon} />
         </Helmet>
-        <Cibamarsi />
         <LayoutMain>{children}</LayoutMain>
       </LayoutRoot>
     )}

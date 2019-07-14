@@ -1,9 +1,68 @@
 import * as React from 'react'
+import { PostIt } from './PostIt'
+import { PostItBkgColor } from './PostIt/styles'
+import { Dida, LinkStyled } from '../UI/Typography'
+import { sortBy } from 'lodash'
 
-const CategoriesMenu: React.FC<{}> = () => {
+interface Props {
+  categories: Array<{ fieldValue: string }>
+  width?: string
+  height?: string
+  style?: React.CSSProperties
+}
+
+const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) => {
+  const categoryList = [
+    { name: 'antipasto', position: 1 },
+    { name: 'primo', position: 2 },
+    { name: 'secondo', position: 3 },
+    { name: 'dolce', position: 4 },
+    { name: 'piatto unico', position: 5 }
+  ]
+
+  const orderedCategory = sortBy(
+    categories.map(c => {
+      return categoryList.find(oC => {
+        if (oC.name === c.fieldValue) {
+          return {
+            position: oC.position,
+            category: c.fieldValue
+          }
+        }
+      })!
+    }),
+    'position'
+  )
+
   return (
-    <div>
-      <span>title</span>
-    </div>
+    <PostIt
+      style={{ gridColumnStart: 3, gridColumnEnd: 'five', ...style }}
+      height={height ? height : '160px'}
+      width={width ? width : '180px'}
+      background={PostItBkgColor.verdino}
+      content={
+        <>
+          {orderedCategory.map(c => {
+            return (
+              <LinkStyled
+                key={c.name}
+                to={`/category/${
+                  c.name === 'undefined'
+                    ? 'uncategorized'
+                    : c.name
+                        .toLowerCase()
+                        .trim()
+                        .replace(' ', '-')
+                }/`}
+              >
+                <Dida style={{ marginTop: 5 }}>{c.name === 'undefined' ? 'Uncategorized' : c.name}</Dida>
+              </LinkStyled>
+            )
+          })}
+        </>
+      }
+    />
   )
 }
+
+export default CategoriesMenu

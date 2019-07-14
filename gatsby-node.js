@@ -44,11 +44,17 @@ exports.createPages = async ({ graphql, actions }) => {
   const allMarkdown = await graphql(`
     {
       allMarkdownRemark(limit: 1000) {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
         edges {
           node {
             fields {
               layout
               slug
+            }
+            frontmatter {
+              title
             }
           }
         }
@@ -79,6 +85,24 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
         slug
+      }
+    })
+  })
+
+  const recipeListByCategoryTemplate = path.resolve('./src/templates/RecipeListByCategory.tsx')
+  allMarkdown.data.allMarkdownRemark.group.forEach(({ fieldValue }) => {
+    createPage({
+      path: `/category/${
+        fieldValue === 'undefined'
+          ? 'uncategorized'
+          : fieldValue
+              .toLowerCase()
+              .trim()
+              .replace(' ', '-')
+      }/`,
+      component: recipeListByCategoryTemplate,
+      context: {
+        category: fieldValue
       }
     })
   })

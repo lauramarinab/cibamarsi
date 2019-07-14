@@ -9,12 +9,12 @@ const Wrapper = styled.div`
   pointer-events: none;
 
   & > svg > text {
-    font-size: 20vw;
+    font-size: 15vw;
     stroke: #ed4057;
     stroke-width: 1;
     fill: none;
     user-select: none;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Fira Code Regular';
   }
 `
 
@@ -51,7 +51,7 @@ const Cibamarsi: React.FC = () => {
   return (
     <Wrapper id={idWrapperRef.current}>
       <svg height={state.textHeight} width="100vw">
-        <text x={-10} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
+        <text x={-15} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
           cibamarsi
         </text>
       </svg>
