@@ -13,7 +13,7 @@ const WrapperHomePage = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(6, calc(100vw / 6));
+  grid-template-columns: repeat(8, calc(100vw / 8));
   grid-template-rows: repeat(6, calc(100vh / 6));
 `
 
@@ -35,7 +35,7 @@ const IndexPage: React.FC<{ data: IndexPageProps }> = ({ data }) => {
     <IndexLayout>
       <WrapperHomePage>
         <Cibamarsi />
-        <RecipeCard selectedRecipe={randomRecipe} />
+        <RecipeCard selectedRecipe={randomRecipe} style={{ gridColumnStart: 2, gridColumnEnd: 4, gridRowStart: 4 }} />
         {/* <PostIt
           background={PostItBkgColor.rosino}
           content={
@@ -69,7 +69,21 @@ export const listRecipeQuery = graphql`
           excerpt(format: HTML)
           frontmatter {
             title
+            description
+            date
+            difficulty
             category
+            tags
+            image {
+              childImageSharp {
+                resize(width: 960, height: 540) {
+                  src
+                }
+                fluid(maxWidth: 786) {
+                  src
+                }
+              }
+            }
           }
         }
       }

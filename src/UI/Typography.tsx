@@ -11,6 +11,7 @@ const Dida = styled.p`
 
 const TitleRecipe = styled.h3`
   color: purple;
+  font-family: 'Fira Code Bold';
 `
 
 const LinkStyled = styled(Link)`

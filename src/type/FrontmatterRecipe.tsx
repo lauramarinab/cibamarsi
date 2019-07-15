@@ -5,7 +5,7 @@ export interface FrontmatterRecipe {
   difficulty: string
   category: string
   tags: string
-  image: {
+  image?: {
     childImageSharp: {
       resize: {
         src: string
