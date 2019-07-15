@@ -37,17 +37,28 @@ export const listQuery = graphql`
     allMarkdownRemark {
       edges {
         node {
+          excerpt(format: HTML)
           fields {
             slug
           }
           frontmatter {
-            description
             title
-            category
+            description
+            date
             difficulty
+            category
             tags
+            image {
+              childImageSharp {
+                resize(width: 960, height: 540) {
+                  src
+                }
+                fluid(maxWidth: 786) {
+                  src
+                }
+              }
+            }
           }
-          excerpt(format: HTML)
         }
       }
     }

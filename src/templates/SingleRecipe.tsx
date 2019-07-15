@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { FrontmatterRecipe } from '../type/FrontmatterRecipe'
 
 interface PageTemplateProps {
   site: {
@@ -12,13 +13,7 @@ interface PageTemplateProps {
   }
   markdownRemark: {
     html: string
-    frontmatter: {
-      title: string
-      description: string
-      category: string
-      difficulty: string
-      tags: string
-    }
+    frontmatter: FrontmatterRecipe
   }
 }
 
@@ -55,11 +50,22 @@ export const recipeQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        description
         title
-        category
+        description
+        date
         difficulty
+        category
         tags
+        image {
+          childImageSharp {
+            resize(width: 960, height: 540) {
+              src
+            }
+            fluid(maxWidth: 786) {
+              src
+            }
+          }
+        }
       }
     }
   }

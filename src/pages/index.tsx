@@ -13,7 +13,8 @@ const WrapperHomePage = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(6, calc(100% / 6));
+  grid-template-columns: repeat(6, calc(100vw / 6));
+  grid-template-rows: repeat(6, calc(100vh / 6));
 `
 
 interface IndexPageProps {

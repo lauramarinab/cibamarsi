@@ -1,3 +1,5 @@
+import { FrontmatterRecipe } from './FrontmatterRecipe'
+
 export interface EdgeNodeRecipe {
   node: {
     excerpt: string
@@ -5,12 +7,6 @@ export interface EdgeNodeRecipe {
       slug: string
       layout: string
     }
-    frontmatter: {
-      title: string
-      category: string
-      description: string
-      difficulty: string
-      tags: string
-    }
+    frontmatter: FrontmatterRecipe
   }
 }
