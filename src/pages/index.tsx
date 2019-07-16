@@ -8,6 +8,7 @@ import { EdgeNodeRecipe } from '../type/EdgeNodeRecipe'
 import Cibamarsi from '../UI/Cibamarsi'
 import RecipeCard from '../components/RecipeCard'
 import { randomNumber } from '../utils/randomNumber'
+import HeartBkg from '../UI/HeartBkg'
 
 const WrapperHomePage = styled.div`
   width: 100vw;
@@ -40,13 +41,14 @@ const IndexPage: React.FC<{ data: IndexPageProps }> = ({ data }) => {
           background={PostItBkgColor.rosino}
           content={
             <>
-              <img style={{ width: '100%' }} src="https://www.instagram.com/p/BxXZCaXFVfX/media" />
-              <Dida style={{ marginTop: 5 }}>since 1992</Dida>
+            <img style={{ width: '100%' }} src="https://www.instagram.com/p/BxXZCaXFVfX/media" />
+            <Dida style={{ marginTop: 5 }}>since 1992</Dida>
             </>
           }
         /> */}
         <CategoriesMenu categories={categories} />
       </WrapperHomePage>
+      <HeartBkg />
     </IndexLayout>
   )
 }
