@@ -11,7 +11,7 @@ interface Props {
   headerLabel?: String
 }
 
-export const Windows: React.FC<Props> = ({ onClickClose, onClickAsk, style, headerActions, headerLabel, bodyWindows }) => {
+const Windows: React.FC<Props> = ({ onClickClose, onClickAsk, style, headerActions, headerLabel, bodyWindows }) => {
   return (
     <WrapperWindows style={style}>
       <HeadWindows>
@@ -39,3 +39,5 @@ export const Windows: React.FC<Props> = ({ onClickClose, onClickAsk, style, head
     </WrapperWindows>
   )
 }
+
+export default Windows

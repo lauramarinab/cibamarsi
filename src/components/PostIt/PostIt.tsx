@@ -10,10 +10,12 @@ interface Props {
   style?: React.CSSProperties
 }
 
-export const PostIt: React.FC<Props> = ({ background, content, width, height, zIndex, style }) => {
+const PostIt: React.FC<Props> = ({ background, content, width, height, zIndex, style }) => {
   return (
     <WrapperPostIt background={background} style={{ width, height, zIndex, ...style }}>
       {content}
     </WrapperPostIt>
   )
 }
+
+export default PostIt

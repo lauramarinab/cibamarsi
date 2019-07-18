@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { PostIt } from './PostIt'
 import { PostItBkgColor } from './PostIt/styles'
 import { Dida, LinkStyled } from '../UI/Typography'
 import { sortBy } from 'lodash'
+import PostIt from './PostIt/PostIt'
 
 interface Props {
   categories: Array<{ fieldValue: string }>

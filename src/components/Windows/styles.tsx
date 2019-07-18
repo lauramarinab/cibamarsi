@@ -6,10 +6,7 @@ const WrapperWindows = styled.div<{ width?: number }>`
   border-width: 2px;
   border-color: #e6e6e6 #808080 #808080 #e6e6e6;
   border-style: solid;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   padding: 2px;
 `
 

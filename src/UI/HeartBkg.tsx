@@ -25,7 +25,7 @@ const Pulsing = keyframes`
 `
 
 const Wrapper = styled.div<{ heartOver: boolean }>`
-  position: absolute;
+  position: fixed;
   left: calc(50% - 10px);
   top: 50%;
   user-select: none;
