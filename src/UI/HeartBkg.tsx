@@ -6,16 +6,40 @@ const Pulsing = keyframes`
     font-size: 15px
     left: calc(50% - 10px)
   }
-  35% {
-    font-size: 18px
+  15% {
+    font-size: 20px
+    left: calc(50% - 12px)
+  }
+  20% {
+    font-size: 15px
+    left: calc(50% - 10px)
+  }
+  30% {
+    font-size: 20px
+    left: calc(50% - 12px)
+  }
+  40% {
+    font-size: 15px
+    left: calc(50% - 10px)
+  }
+  45% {
+    font-size: 15px
+    left: calc(50% - 10px)
+  }
+  50% {
+    font-size: 15px
+    left: calc(50% - 10px)
+  }
+  60% {
+    font-size: 20px
     left: calc(50% - 12px)
   }
   65% {
-    font-size: 25px
+    font-size: 23px
     left: calc(50% - 15px)
   }
   85% {
-    font-size: 18px
+    font-size: 20px
     left: calc(50% - 12px)
   }
   100% {
@@ -27,13 +51,14 @@ const Pulsing = keyframes`
 const Wrapper = styled.div<{ heartOver: boolean }>`
   position: fixed;
   left: calc(50% - 10px);
+  font-size: 15px;
   top: 50%;
   user-select: none;
   transition: left 0.2s, font-size 0.2s;
   ${props =>
     props.heartOver &&
     css`
-      animation: ${Pulsing} 0.5s infinite;
+      animation: ${Pulsing} 1.5s infinite;
     `}
 `
 

@@ -1,6 +1,20 @@
 /* eslint-disable max-len */
 
 export const colors = {
+  postIt: {
+    giallino: {
+      primaryColor: '#ffe9a6',
+      secondaryColor: '#f2d889'
+    },
+    verdino: {
+      primaryColor: '#e9ffa6',
+      secondaryColor: '#d8f481'
+    },
+    rosino: {
+      primaryColor: '#f3cfd5',
+      secondaryColor: '#eabbc3'
+    }
+  },
   brand: '#663399',
   lilac: '#9d7cbf',
   accent: '#ffb238',

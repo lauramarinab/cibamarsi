@@ -13,11 +13,12 @@ interface Props {
 
 const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) => {
   const categoryList = [
-    { name: 'antipasto', position: 1 },
-    { name: 'primo', position: 2 },
-    { name: 'secondo', position: 3 },
-    { name: 'dolce', position: 4 },
-    { name: 'piatto unico', position: 5 }
+    { name: 'antipasti', position: 1 },
+    { name: 'primi', position: 2 },
+    { name: 'secondi', position: 3 },
+    { name: 'dolci', position: 4 },
+    { name: 'piatti unici', position: 5 },
+    { name: 'frullati', position: 6 }
   ]
 
   const orderedCategory = sortBy(
@@ -55,7 +56,9 @@ const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) =
                         .replace(' ', '-')
                 }/`}
               >
-                <Dida style={{ marginTop: 5 }}>{c.name === 'undefined' ? 'Uncategorized' : c.name}</Dida>
+                <Dida style={{ marginTop: 5, fontSize: 23, whiteSpace: 'nowrap' }}>
+                  {c.name === 'undefined' ? 'Uncategorized' : c.name}
+                </Dida>
               </LinkStyled>
             )
           })}

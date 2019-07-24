@@ -2,7 +2,7 @@
 title: Pasta con pesto di zucchine e guanciale croccante
 description: lorem ipsum
 date: '2018-09-28'
-category: 'primo'
+category: 'primi'
 difficulty: 'te devi impegnà'
 tags: 'italiana'
 ---

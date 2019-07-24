@@ -30,6 +30,7 @@ const ButtonWindows = styled.button`
   font-size: 10px;
   font-weight: bold;
   font-family: Tahoma;
+  cursor: pointer;
 `
 
 const BodyWindows = styled.div`

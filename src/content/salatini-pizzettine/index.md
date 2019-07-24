@@ -2,7 +2,7 @@
 title: Salatini - pizzettine
 description: lorem ipsum
 date: '2018-09-28'
-category: 'antipasto'
+category: 'antipasti'
 difficulty: 'facilissimo'
 tags: 'italiana, deliziose'
 ---

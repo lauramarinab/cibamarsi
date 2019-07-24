@@ -13,6 +13,7 @@ import Windows from '../components/Windows/Windows'
 import { PostItBkgColor } from '../components/PostIt/styles'
 import PostIt from '../components/PostIt/PostIt'
 import { Dida } from '../UI/Typography'
+import { ButtonWindows } from '../components/Windows/styles'
 
 const WrapperHomePage = styled.div`
   width: 100vw;
@@ -57,19 +58,9 @@ const IndexPage: React.FC<Props> = ({ data }) => {
         />
         <CategoriesMenu categories={categories} />
       </WrapperHomePage>
-      <div style={{ height: '100%', width: '100vw' }}>
-        <Windows
-          onClickClose={() => console.log('chiuso!')}
-          onClickAsk={() => setState({ openAlert: true })}
-          headerLabel="Warning"
-          bodyWindows={
-            <div>
-              <Dida>Ti piace cucinare?</Dida>
-            </div>
-          }
-        />
-        {state.openAlert && <Windows onClickClose={() => setState({ openAlert: false })} />}
+      <WrapperHomePage>
         <PostIt
+          style={{ gridColumn: '2 / span 3', gridRowStart: 2, height: 250 }}
           background={PostItBkgColor.rosino}
           content={
             <>
@@ -78,7 +69,28 @@ const IndexPage: React.FC<Props> = ({ data }) => {
             </>
           }
         />
-      </div>
+        <Windows
+          style={{ gridColumn: '6 / span 3', gridRowStart: 4 }}
+          onClickClose={() => console.log('chiuso!')}
+          onClickAsk={() => setState({ openAlert: true })}
+          headerLabel="Warning"
+          bodyWindows={
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Dida>Ti piace cucinare?</Dida>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', width: '100%', marginTop: 20 }}>
+                <ButtonWindows style={{ width: '30%', height: 30 }}>si</ButtonWindows>
+                <ButtonWindows style={{ width: '30%', height: 30 }}>no</ButtonWindows>
+              </div>
+            </div>
+          }
+        />
+        {state.openAlert && (
+          <Windows
+            style={{ gridColumn: '5 / span 3', gridRowStart: 3, top: 50, left: 50 }}
+            onClickClose={() => setState({ openAlert: false })}
+          />
+        )}
+      </WrapperHomePage>
       <HeartBkg />
     </IndexLayout>
   )

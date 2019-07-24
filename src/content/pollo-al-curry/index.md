@@ -2,7 +2,7 @@
 title: Pollo al curry
 description: lorem ipsum
 date: '2018-09-28'
-category: 'piatto unico'
+category: 'piatti unici'
 difficulty: 'facile'
 tags: 'speziata, indiana'
 image: 'space-copy.jpg'
