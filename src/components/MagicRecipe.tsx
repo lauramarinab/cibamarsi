@@ -30,30 +30,30 @@ const MagicRecipe: React.FC<Props> = ({ linkTo }) => {
     isMagic: false
   })
 
-  const stellineIntervalRef = React.useRef(
-    setInterval(() => {
-      setState(state => ({ ...state, isMagic: !state.isMagic }))
-    }, 8000)
-  )
+  // const stellineIntervalRef = React.useRef(
+  //   setInterval(() => {
+  //     setState(state => ({ ...state, isMagic: !state.isMagic }))
+  //   }, 8000)
+  // )
 
-  const onOverMagicWand = () => {
-    stellineIntervalRef.current
-  }
+  // const onOverMagicWand = () => {
+  //   stellineIntervalRef.current
+  // }
 
-  const onOutMagicWand = () => {
-    clearInterval(stellineIntervalRef.current)
-  }
+  // const onOutMagicWand = () => {
+  //   clearInterval(stellineIntervalRef.current)
+  // }
 
-  React.useEffect(() => {
-    if (state.isOver) {
-      onOverMagicWand()
-    }
-    if (!state.isOver) {
-      onOutMagicWand()
-    }
-  }, [state.isOver])
+  // React.useEffect(() => {
+  //   if (state.isOver) {
+  //     onOverMagicWand()
+  //   }
+  //   if (!state.isOver) {
+  //     onOutMagicWand()
+  //   }
+  // }, [state.isOver])
 
-  console.log('isOver', state.isOver)
+  // console.log('isOver', state.isOver)
 
   return (
     <LinkStyled
