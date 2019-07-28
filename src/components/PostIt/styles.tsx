@@ -1,34 +1,22 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors } from '../../styles/variables'
-
-// export enum PostItBkgColor {
-//   giallino = '#ffe9a6',
-//   verdino = '#e9ffa6',
-//   rosino = '#f3cfd5'
-// }
-
-// export enum darkColor {
-//   giallinoScuro = '#f2d889',
-//   verdinoScuro = '#d8f481',
-//   rosinoScuro = '#eabbc3'
-// }
 
 export const postItColors = {
   magenta: {
     primaryColor: colors.pastello.magenta,
     secondaryColor: colors.pastello.magentaDark
   },
-  verde: {
-    primaryColor: '#e9ffa6',
-    secondaryColor: '#d8f481'
+  verdeAcqua: {
+    primaryColor: colors.pastello.verdeAcqua,
+    secondaryColor: colors.pastello.verdeAcquaDark
   },
   azzurro: {
-    primaryColor: '#f3cfd5',
-    secondaryColor: '#eabbc3'
+    primaryColor: colors.pastello.cyan,
+    secondaryColor: colors.pastello.cyanDark
   },
   lilla: {
-    primaryColor: '#f3cfd5',
-    secondaryColor: '#eabbc3'
+    primaryColor: colors.pastello.lilla,
+    secondaryColor: colors.pastello.lillaDark
   },
   salmone: {
     primaryColor: colors.pastello.salmone,
@@ -36,14 +24,14 @@ export const postItColors = {
   }
 }
 
-export type PostItColor = 'magenta' | 'verde' | 'azzurro' | 'lilla' | 'salmone'
+export type PostItColor = 'magenta' | 'verdeAcqua' | 'azzurro' | 'lilla' | 'salmone'
 
 const getBackgroundColor = (background: PostItColor) => {
   switch (background) {
     case 'magenta':
       return postItColors.magenta.primaryColor
-    case 'verde':
-      return postItColors.verde.primaryColor
+    case 'verdeAcqua':
+      return postItColors.verdeAcqua.primaryColor
     case 'azzurro':
       return postItColors.azzurro.primaryColor
     case 'lilla':
@@ -57,8 +45,8 @@ const getSecondaryColor = (background: PostItColor) => {
   switch (background) {
     case 'magenta':
       return postItColors.magenta.secondaryColor
-    case 'verde':
-      return postItColors.verde.secondaryColor
+    case 'verdeAcqua':
+      return postItColors.verdeAcqua.secondaryColor
     case 'azzurro':
       return postItColors.azzurro.secondaryColor
     case 'lilla':
@@ -74,8 +62,6 @@ const WrapperPostIt = styled.div<{ width?: string; height?: string; background?:
   width: ${props => (props.width ? `${props.width}` : '250px')};
   height: ${props => (props.width ? `${props.width}` : '')};
   padding: 20px;
-
-  /* transform: rotate(7deg) translateX(-50%); */
 
   &::before {
     content: '';

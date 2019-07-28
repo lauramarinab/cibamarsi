@@ -10,9 +10,9 @@ const Wrapper = styled.div`
   pointer-events: none;
 
   & > svg > text {
-    font-size: 15vw;
+    font-size: 13vw;
     stroke: ${colors.rgb.magenta};
-    stroke-width: 1.5;
+    stroke-width: 2;
     fill: none;
     user-select: none;
     font-family: 'Fira Code Regular';
@@ -49,10 +49,12 @@ const Cibamarsi: React.FC = () => {
     }
   }, [state.viewportWidth])
 
+  const xPosition = state.viewportWidth >= 2030 ? -30 : state.viewportWidth >= 1760 ? -25 : -20
+
   return (
     <Wrapper id={idWrapperRef.current}>
       <svg height={state.textHeight} width="100vw">
-        <text x={-15} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
+        <text x={xPosition} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
           cibamarsi
         </text>
       </svg>

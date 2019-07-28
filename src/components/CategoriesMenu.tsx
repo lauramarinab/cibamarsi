@@ -42,7 +42,7 @@ const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) =
 
   return (
     <PostIt
-      style={{ gridColumnStart: 6, gridRowStart: 3, ...style }}
+      style={{ gridColumnStart: 12, gridColumnEnd: 14, gridRowStart: 2, gridRowEnd: 4, ...style }}
       width={width ? width : '200px'}
       height={height ? height : '180px'}
       background="salmone"

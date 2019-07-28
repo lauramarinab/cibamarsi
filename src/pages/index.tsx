@@ -13,12 +13,14 @@ import Windows from '../components/Windows/Windows'
 import PostIt from '../components/PostIt/PostIt'
 import { Dida } from '../UI/Typography'
 import { ButtonWindows } from '../components/Windows/styles'
+import MagicRecipe from '../components/MagicRecipe'
 
 const WrapperHomePage = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(8, calc(100vw / 8));
+  grid-gap: 10px;
+  grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(6, calc(100vh / 6));
 `
 
@@ -44,6 +46,8 @@ const IndexPage: React.FC<Props> = ({ data }) => {
 
   const randomRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
 
+  const magicRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
+
   const [state, setState] = React.useState<State>({ openAlert: false })
 
   return (
@@ -53,13 +57,15 @@ const IndexPage: React.FC<Props> = ({ data }) => {
         <RecipeCard
           linkTo={randomRecipe.current.node.fields.slug}
           selectedRecipe={randomRecipe.current}
-          style={{ gridColumn: '2 / span 3', gridRowStart: 4 }}
+          style={{ gridColumnStart: 3, gridColumnEnd: 6, gridRowStart: 3, gridRowEnd: 5 }}
         />
+        <MagicRecipe linkTo={magicRecipe.current.node.fields.slug} />
         <CategoriesMenu categories={categories} />
       </WrapperHomePage>
       <WrapperHomePage>
         <PostIt
-          style={{ gridColumn: '2 / span 3', gridRowStart: 2, height: 250 }}
+          style={{ gridColumnStart: 12, gridColumnEnd: 14, gridRowStart: 2, gridRowEnd: 4 }}
+          height="250px"
           background="azzurro"
           content={
             <>

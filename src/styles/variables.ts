@@ -8,14 +8,18 @@ export const colors = {
     magenta: '#FF02FC'
   },
   pastello: {
-    verdeChiaro: '#DFF884',
+    verdino: '#DFF884',
+    verdinoDark: '#CFEC6B',
     verdeAcqua: '#60FFC0',
+    verdeAcquaDark: '#4FEBAD',
     cyan: '#79FFFD',
+    cyanDark: '#56EDEB',
     salmone: '#FFA881',
     salmoneDark: '#E99068',
     magenta: '#FF73B0',
     magentaDark: '#F74C96',
-    lilla: '#9499FF'
+    lilla: '#9499FF',
+    lillaDark: '#7C82F0'
   },
   grigio: {
     light: '#e6e6e6',
