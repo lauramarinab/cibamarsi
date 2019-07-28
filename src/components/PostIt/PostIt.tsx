@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { WrapperPostIt, PostItBkgColor } from './styles'
+import { WrapperPostIt, PostItColor } from './styles'
 
 interface Props {
   content: string | JSX.Element
-  background?: PostItBkgColor
+  background?: PostItColor
   width?: string
   height?: string
   zIndex?: number

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { WrapperWindows, ButtonWindows, BodyWindows, HeadWindows } from './styles'
 import { Dida } from '../../UI/Typography'
+import { colors } from '../../styles/variables'
 
 interface Props {
   onClickClose?: () => void
@@ -15,7 +16,7 @@ const Windows: React.FC<Props> = ({ onClickClose, onClickAsk, style, headerActio
   return (
     <WrapperWindows style={style}>
       <HeadWindows>
-        <Dida style={{ color: '#fff' }}>
+        <Dida style={{ color: colors.bianco }}>
           {headerLabel ? (
             headerLabel
           ) : (

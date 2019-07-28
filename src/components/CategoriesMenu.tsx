@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { PostItBkgColor } from './PostIt/styles'
 import { Dida, LinkStyled } from '../UI/Typography'
 import { sortBy } from 'lodash'
 import PostIt from './PostIt/PostIt'
+import { colors } from '../styles/variables'
 
 interface Props {
   categories: Array<{ fieldValue: string }>
@@ -35,12 +35,17 @@ const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) =
     'position'
   )
 
+  // come inserire fontello
+  // <span style={{ fontFamily: '"Icons"' }} className="icon-comments">
+  //   
+  // </span>
+
   return (
     <PostIt
       style={{ gridColumnStart: 6, gridRowStart: 3, ...style }}
       width={width ? width : '200px'}
       height={height ? height : '180px'}
-      background={PostItBkgColor.verdino}
+      background="salmone"
       content={
         <>
           {orderedCategory.map(c => {
@@ -56,7 +61,7 @@ const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) =
                         .replace(' ', '-')
                 }/`}
               >
-                <Dida style={{ marginTop: 5, fontSize: 23, whiteSpace: 'nowrap' }}>
+                <Dida style={{ marginTop: 5, fontSize: 23, whiteSpace: 'nowrap', color: colors.bianco }}>
                   {c.name === 'undefined' ? 'Uncategorized' : c.name}
                 </Dida>
               </LinkStyled>

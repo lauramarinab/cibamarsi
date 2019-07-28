@@ -10,7 +10,6 @@ import RecipeCard from '../components/RecipeCard/RecipeCard'
 import { randomNumber } from '../utils/randomNumber'
 import HeartBkg from '../UI/HeartBkg'
 import Windows from '../components/Windows/Windows'
-import { PostItBkgColor } from '../components/PostIt/styles'
 import PostIt from '../components/PostIt/PostIt'
 import { Dida } from '../UI/Typography'
 import { ButtonWindows } from '../components/Windows/styles'
@@ -61,7 +60,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
       <WrapperHomePage>
         <PostIt
           style={{ gridColumn: '2 / span 3', gridRowStart: 2, height: 250 }}
-          background={PostItBkgColor.rosino}
+          background="azzurro"
           content={
             <>
               <img style={{ width: '100%' }} src="https://www.instagram.com/p/BxXZCaXFVfX/media" />

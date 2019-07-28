@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useRef, useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 import styled from 'styled-components'
+import { colors } from '../styles/variables'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -10,8 +11,8 @@ const Wrapper = styled.div`
 
   & > svg > text {
     font-size: 15vw;
-    stroke: #ed4057;
-    stroke-width: 1;
+    stroke: ${colors.rgb.magenta};
+    stroke-width: 1.5;
     fill: none;
     user-select: none;
     font-family: 'Fira Code Regular';

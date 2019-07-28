@@ -1,38 +1,29 @@
 /* eslint-disable max-len */
 
 export const colors = {
-  postIt: {
-    giallino: {
-      primaryColor: '#ffe9a6',
-      secondaryColor: '#f2d889'
-    },
-    verdino: {
-      primaryColor: '#e9ffa6',
-      secondaryColor: '#d8f481'
-    },
-    rosino: {
-      primaryColor: '#f3cfd5',
-      secondaryColor: '#eabbc3'
-    }
+  rgb: {
+    blu: '#1901FE',
+    verde: '#00FD03',
+    cyan: '#0EF7FF',
+    magenta: '#FF02FC'
   },
-  brand: '#663399',
-  lilac: '#9d7cbf',
-  accent: '#ffb238',
-  success: '#37b635',
-  warning: '#ec1818',
-  ui: {
-    bright: '#e0d6eb',
-    light: '#f5f3f7',
-    whisper: '#fbfafc'
+  pastello: {
+    verdeChiaro: '#DFF884',
+    verdeAcqua: '#60FFC0',
+    cyan: '#79FFFD',
+    salmone: '#FFA881',
+    salmoneDark: '#E99068',
+    magenta: '#FF73B0',
+    magentaDark: '#F74C96',
+    lilla: '#9499FF'
   },
-  code: '#fcf6f0',
-  gray: {
-    dark: 'hsla(270, 17.119554496%, 0%, 0.92)',
-    copy: 'hsla(270, 15.797828016000002%, 0%, 0.88)',
-    calm: 'rgba(0, 0, 0, 0.54)'
+  grigio: {
+    light: '#e6e6e6',
+    medium: '#c0c0c0',
+    dark: '#808080'
   },
-  white: '#fff',
-  black: '#000'
+  bianco: '#fff',
+  nero: '#000'
 }
 
 export const fonts = {
