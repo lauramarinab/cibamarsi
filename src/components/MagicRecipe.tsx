@@ -10,7 +10,7 @@ const Mestolo = styled.img`
   right: 20px;
   top: 20px;
   padding: 20px;
-  width: 100px;
+  width: 80px;
 `
 
 const Stelline = styled.img`
@@ -30,30 +30,18 @@ const MagicRecipe: React.FC<Props> = ({ linkTo }) => {
     isMagic: false
   })
 
-  // const stellineIntervalRef = React.useRef(
-  //   setInterval(() => {
-  //     setState(state => ({ ...state, isMagic: !state.isMagic }))
-  //   }, 8000)
-  // )
+  const intervalRef = React.useRef<number>()
 
-  // const onOverMagicWand = () => {
-  //   stellineIntervalRef.current
-  // }
-
-  // const onOutMagicWand = () => {
-  //   clearInterval(stellineIntervalRef.current)
-  // }
-
-  // React.useEffect(() => {
-  //   if (state.isOver) {
-  //     onOverMagicWand()
-  //   }
-  //   if (!state.isOver) {
-  //     onOutMagicWand()
-  //   }
-  // }, [state.isOver])
-
-  // console.log('isOver', state.isOver)
+  React.useEffect(() => {
+    if (state.isOver) {
+      intervalRef.current = setInterval(() => {
+        setState(state => ({ ...state, isMagic: !state.isMagic }))
+      }, 300)
+    }
+    if (!state.isOver && intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+  }, [state.isOver])
 
   return (
     <LinkStyled
