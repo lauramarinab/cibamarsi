@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { EdgeNodeRecipe } from '../../type/EdgeNodeRecipe'
 import { WrapperImg, RecipeImg } from './styles'
-import { TitleRecipe, LinkStyled } from '../../UI/Typography'
+import { TitleRecipe, LinkStyled, Difficulty } from '../../UI/Typography'
+import { colors } from '../../styles/variables'
+import { getIconFromDifficulty } from '../../utils/getIconFromDifficulty'
 
 interface Props {
   selectedRecipe: EdgeNodeRecipe
@@ -21,13 +23,17 @@ const RecipeCard: React.FC<Props> = ({ selectedRecipe, linkTo, style }) => {
   const recipe = selectedRecipe.node
   const image = recipe.frontmatter.image
 
-  const shadowColor = state.overImage ? '#C5A3D7' : '#F15A24'
+  const shadowColor = state.overImage ? colors.pastello.lilla : colors.pastello.verdino
 
   return (
     <LinkStyled to={linkTo} style={style}>
       <div onMouseOver={() => setState({ overImage: true })} onMouseOut={() => setState({ overImage: false })}>
         <WrapperImg shadowColor={shadowColor}>{image && <RecipeImg src={image.childImageSharp.resize.src} />}</WrapperImg>
-        <TitleRecipe style={{ color: '#5226EF' }}>{recipe.frontmatter.title}</TitleRecipe>
+        <TitleRecipe>{recipe.frontmatter.title}</TitleRecipe>
+        <Difficulty style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
+          <span style={{ marginLeft: 10, marginRight: 5 }}>{getIconFromDifficulty(recipe.frontmatter.difficulty)}</span>
+          {recipe.frontmatter.difficulty}
+        </Difficulty>
       </div>
     </LinkStyled>
   )

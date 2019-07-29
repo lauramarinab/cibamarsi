@@ -27,7 +27,8 @@ export const colors = {
     dark: '#808080'
   },
   bianco: '#fff',
-  nero: '#000'
+  nero: '#000',
+  antracite: '#2c2c2c'
 }
 
 export const fonts = {

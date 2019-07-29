@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts } from '../styles/variables'
+import { fonts, colors } from '../styles/variables'
 import { Link } from 'gatsby'
 
 const Dida = styled.p`
@@ -10,12 +10,19 @@ const Dida = styled.p`
 `
 
 const TitleRecipe = styled.h3`
-  color: purple;
   font-family: 'Fira Code Bold';
+  font-size: 20px;
+  color: ${colors.rgb.blu};
+`
+
+const Difficulty = styled.h5`
+  font-family: 'Fira Code Medium';
+  font-size: 15px;
+  color: ${colors.grigio.medium};
 `
 
 const LinkStyled = styled(Link)`
   text-decoration: none;
 `
 
-export { Dida, TitleRecipe, LinkStyled }
+export { Dida, TitleRecipe, LinkStyled, Difficulty }

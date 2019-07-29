@@ -1,9 +1,10 @@
 import * as React from 'react'
-import mestolo from '../assets/icon/mestolo.svg'
-import stelline_a from '../assets/icon/stelline1.svg'
-import stelline_b from '../assets/icon/stelline2.svg'
 import styled from 'styled-components'
 import { LinkStyled } from '../UI/Typography'
+
+const mestolo = require('../assets/icon/mestolo.svg')
+const stelline_a = require('../assets/icon/stelline1.svg')
+const stelline_b = require('../assets/icon/stelline2.svg')
 
 const Mestolo = styled.img`
   position: absolute;
@@ -46,7 +47,7 @@ const MagicRecipe: React.FC<Props> = ({ linkTo }) => {
   return (
     <LinkStyled
       to={linkTo}
-      style={{ position: 'absolute', right: 0, top: 0, width: 110, height: 120 }}
+      style={{ position: 'fixed', right: 0, top: 0, width: 110, height: 120, zIndex: 1 }}
       onMouseOver={() => setState({ ...state, isOver: true })}
       onMouseOut={() => setState({ ...state, isOver: false })}
     >
