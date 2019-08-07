@@ -9,6 +9,7 @@ const WrapperWindows = styled.div<{ width?: number }>`
   border-style: solid;
   position: relative;
   padding: 2px;
+  display: inline-table;
 `
 
 const HeadWindows = styled.div`
@@ -24,8 +25,8 @@ const HeadWindows = styled.div`
 
 const ButtonWindows = styled.button`
   margin: 2px 2px 2px 0;
-  width: 16px;
-  height: 16px;
+  width: 100%;
+  height: 30px;
   background: ${colors.grigio.medium};
   border-width: 2px;
   border-color: ${colors.bianco} ${colors.grigio.dark} ${colors.grigio.dark} ${colors.bianco};

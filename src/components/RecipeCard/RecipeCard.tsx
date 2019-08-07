@@ -27,7 +27,11 @@ const RecipeCard: React.FC<Props> = ({ selectedRecipe, linkTo, style }) => {
 
   return (
     <LinkStyled to={linkTo} style={style}>
-      <div onMouseOver={() => setState({ overImage: true })} onMouseOut={() => setState({ overImage: false })}>
+      <div
+        onMouseOver={() => setState({ overImage: true })}
+        onMouseOut={() => setState({ overImage: false })}
+        style={{ width: 350, height: 220 }}
+      >
         <WrapperImg shadowColor={shadowColor}>{image && <RecipeImg src={image.childImageSharp.resize.src} />}</WrapperImg>
         <TitleRecipe>{recipe.frontmatter.title}</TitleRecipe>
         <Difficulty style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
