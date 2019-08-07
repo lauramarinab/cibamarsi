@@ -42,22 +42,7 @@ export const listQuery = graphql`
             slug
           }
           frontmatter {
-            title
-            description
-            date
-            difficulty
-            category
-            tags
-            image {
-              childImageSharp {
-                resize(width: 960, height: 540) {
-                  src
-                }
-                fluid(maxWidth: 786) {
-                  src
-                }
-              }
-            }
+            ...frontmatter
           }
         }
       }

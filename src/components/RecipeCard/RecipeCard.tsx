@@ -25,6 +25,8 @@ const RecipeCard: React.FC<Props> = ({ selectedRecipe, linkTo, style }) => {
 
   const shadowColor = state.overImage ? colors.pastello.lilla : colors.pastello.verdino
 
+  const coverImage = image ? image.find(i => i.type === 'cover') : null
+
   return (
     <LinkStyled to={linkTo} style={style}>
       <div
@@ -32,7 +34,7 @@ const RecipeCard: React.FC<Props> = ({ selectedRecipe, linkTo, style }) => {
         onMouseOut={() => setState({ overImage: false })}
         style={{ width: 350, height: 220 }}
       >
-        <WrapperImg shadowColor={shadowColor}>{image && <RecipeImg src={image.childImageSharp.resize.src} />}</WrapperImg>
+        <WrapperImg shadowColor={shadowColor}>{coverImage && <RecipeImg src={coverImage.url.childImageSharp.resize.src} />}</WrapperImg>
         <TitleRecipe>{recipe.frontmatter.title}</TitleRecipe>
         <Difficulty style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
           <span style={{ marginLeft: 10, marginRight: 5 }}>{getIconFromDifficulty(recipe.frontmatter.difficulty)}</span>
