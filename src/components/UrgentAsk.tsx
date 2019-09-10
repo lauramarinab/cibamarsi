@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Windows from './Windows/Windows'
+import Windows from './Windows'
 import { Dida } from '../UI/Typography'
 import { ButtonWindows } from './Windows/styles'
 import { colors } from '../styles/variables'

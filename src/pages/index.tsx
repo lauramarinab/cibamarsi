@@ -9,10 +9,9 @@ import Cibamarsi from '../UI/Cibamarsi'
 import RecipeCard from '../components/RecipeCard/RecipeCard'
 import { randomNumber } from '../utils/randomNumber'
 import HeartBkg from '../UI/HeartBkg'
-import PostIt from '../components/PostIt/PostIt'
-import { Dida } from '../UI/Typography'
 import MagicRecipe from '../components/MagicRecipe'
 import UrgentAsk from '../components/UrgentAsk'
+import InstagramExe from '../components/InstagramExe'
 
 const WrapperHomePage = styled.div`
   width: 100vw;
@@ -39,7 +38,8 @@ const IndexPage: React.FC<Props> = ({ data }) => {
   const recipes = data.allMarkdownRemark.edges
   const categories = data.allMarkdownRemark.group
 
-  const randomRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
+  const firstRandomRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
+  const secondRandomRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
 
   const magicRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
 
@@ -49,24 +49,19 @@ const IndexPage: React.FC<Props> = ({ data }) => {
       <WrapperHomePage>
         <Cibamarsi />
         <RecipeCard
-          linkTo={randomRecipe.current.node.fields.slug}
-          selectedRecipe={randomRecipe.current}
+          linkTo={firstRandomRecipe.current.node.fields.slug}
+          selectedRecipe={firstRandomRecipe.current}
           style={{ gridColumnStart: 1, gridColumnEnd: 4, gridRowStart: 3, gridRowEnd: 4, justifySelf: 'center' }}
         />
         <CategoriesMenu categories={categories} />
         <UrgentAsk />
       </WrapperHomePage>
       <WrapperHomePage>
-        <PostIt
-          style={{ gridColumnStart: 12, gridColumnEnd: 14, gridRowStart: 2, gridRowEnd: 4 }}
-          height="250px"
-          background="azzurro"
-          content={
-            <>
-              <img style={{ width: '100%' }} src="https://www.instagram.com/p/BxXZCaXFVfX/media" />
-              <Dida style={{ marginTop: 5 }}>since 1992</Dida>
-            </>
-          }
+        <InstagramExe />
+        <RecipeCard
+          linkTo={secondRandomRecipe.current.node.fields.slug}
+          selectedRecipe={secondRandomRecipe.current}
+          style={{ gridColumnStart: 4, gridColumnEnd: 7, gridRowStart: 1, gridRowEnd: 3, justifySelf: 'center' }}
         />
       </WrapperHomePage>
       <HeartBkg />

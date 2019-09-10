@@ -40,14 +40,14 @@ const Recipe: React.FC<{ data: PageTemplateProps }> = ({ data }) => {
       <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: recipe.html }} />
       {coverImage && <img style={{ width: 100 }} src={coverImage.url.childImageSharp.resize.src} />}
       {orderedProcessImages.length > 0 && (
-        <div>
+        <>
           {orderedProcessImages.map((img, i) => (
-            <>
+            <div key={i}>
               <span>{i + 1}</span>
               <img key={i} style={{ width: 100 }} src={img.url.childImageSharp.resize.src} />
-            </>
+            </div>
           ))}
-        </div>
+        </>
       )}
     </div>
   )
