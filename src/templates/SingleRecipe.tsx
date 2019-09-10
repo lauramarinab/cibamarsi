@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { FrontmatterRecipe } from '../type/FrontmatterRecipe'
 import { sortBy } from 'lodash'
+import SvgTitleRecipe from '../components/SvgTitleRecipe'
+import { MarqueeRecipe } from '../UI/MarqueeRecipe'
 
 interface PageTemplateProps {
   site: {
@@ -26,6 +28,7 @@ const Recipe: React.FC<{ data: PageTemplateProps }> = ({ data }) => {
 
   const processImages = image ? image.filter(i => i.type === 'process') : null
   const orderedProcessImages = sortBy(processImages, 'position')
+
   return (
     <div>
       <Helmet
@@ -35,7 +38,8 @@ const Recipe: React.FC<{ data: PageTemplateProps }> = ({ data }) => {
           { name: 'keywords', content: data.site.siteMetadata.keywords }
         ]}
       />
-      <h1>{recipe.frontmatter.title}</h1>
+      <MarqueeRecipe groupWords={[recipe.frontmatter.difficulty, recipe.frontmatter.title, recipe.frontmatter.category]} />
+      <SvgTitleRecipe text={recipe.frontmatter.title} />
       <p>{recipe.frontmatter.difficulty}</p>
       <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: recipe.html }} />
       {coverImage && <img style={{ width: 100 }} src={coverImage.url.childImageSharp.resize.src} />}
