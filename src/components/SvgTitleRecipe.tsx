@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   pointer-events: none;
 
   & > svg > text {
-    font-size: 13vw;
-    stroke: ${colors.rgb.magenta};
+    font-size: 10vw;
+    stroke: ${colors.rgb.verde};
     stroke-width: 2;
     fill: none;
     user-select: none;
@@ -19,6 +19,38 @@ const Wrapper = styled.div`
     white-space: nowrap;
   }
 `
+
+const svgTextMultiline = (element: HTMLElement, width: number, y: number) => {
+  const text = element.innerHTML
+  const words = text.split(' ')
+  let line = ''
+
+  debugger
+  element.innerHTML = '<tspan id="PROCESSING">busy</tspan >'
+
+  for (var n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' '
+    const testElem = document.getElementById('PROCESSING')
+    /*  Add line in testElement */
+    if (testElem) {
+      testElem.innerHTML = testLine
+      /* Messure textElement */
+      var metrics = testElem.getBoundingClientRect()
+      const testWidth = metrics.width
+
+      if (testWidth > width && n > 0) {
+        element.innerHTML += '<tspan x="0" dy="' + y + '">' + line + '</tspan>'
+        line = words[n] + ' '
+      } else {
+        line = testLine
+      }
+    }
+  }
+
+  element.innerHTML += '<tspan x="0" dy="' + y + '">' + line + '</tspan>'
+  const testEl = document.getElementById('PROCESSING')
+  testEl ? testEl.remove() : null
+}
 
 interface Props {
   text: string
@@ -42,6 +74,12 @@ const SvgTitleRecipe: React.FC<Props> = ({ text }) => {
   useEffect(() => {
     window.addEventListener('resize', handleResize.current)
 
+    const textSvgElement = document.getElementById(idTitleRef.current)
+
+    if (textSvgElement) {
+      svgTextMultiline(textSvgElement, state.viewportWidth, state.textHeight - 20)
+    }
+
     return () => {
       window.removeEventListener('resize', handleResize.current)
     }
@@ -61,7 +99,7 @@ const SvgTitleRecipe: React.FC<Props> = ({ text }) => {
     <Wrapper id={idWrapperRef.current}>
       <svg height={state.textHeight} width="100vw">
         <text x={xPosition} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
-          <tspan>{text}</tspan>
+          {text}
         </text>
       </svg>
     </Wrapper>

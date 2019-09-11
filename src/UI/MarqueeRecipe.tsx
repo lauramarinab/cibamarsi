@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { upperCase } from 'lodash'
 import { Dida } from './Typography'
+import { colors } from '../styles/variables'
 
 const MoveSlideshow = keyframes`
     0% {
@@ -16,14 +17,14 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   padding: 25px 0px;
-  border-bottom: 2px solid #222222;
-  color: #222222;
+  border-bottom: 2px solid ${colors.rgb.magenta};
   font-family: monospace;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
   user-select: none;
   & > p {
+    color: ${colors.rgb.magenta};
     position: absolute;
     white-space: nowrap;
     font-size: 15px;
