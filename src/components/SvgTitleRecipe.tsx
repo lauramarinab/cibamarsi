@@ -3,6 +3,8 @@ import { useRef, useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 import styled from 'styled-components'
 import { colors } from '../styles/variables'
+import * as d3 from 'd3'
+import { RecipeContext } from '../providers/RecipeProvider'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -10,7 +12,7 @@ const Wrapper = styled.div`
   pointer-events: none;
 
   & > svg > text {
-    font-size: 10vw;
+    font-size: 9vw;
     stroke: ${colors.rgb.verde};
     stroke-width: 2;
     fill: none;
@@ -20,38 +22,6 @@ const Wrapper = styled.div`
   }
 `
 
-const svgTextMultiline = (element: HTMLElement, width: number, y: number) => {
-  const text = element.innerHTML
-  const words = text.split(' ')
-  let line = ''
-
-  debugger
-  element.innerHTML = '<tspan id="PROCESSING">busy</tspan >'
-
-  for (var n = 0; n < words.length; n++) {
-    const testLine = line + words[n] + ' '
-    const testElem = document.getElementById('PROCESSING')
-    /*  Add line in testElement */
-    if (testElem) {
-      testElem.innerHTML = testLine
-      /* Messure textElement */
-      var metrics = testElem.getBoundingClientRect()
-      const testWidth = metrics.width
-
-      if (testWidth > width && n > 0) {
-        element.innerHTML += '<tspan x="0" dy="' + y + '">' + line + '</tspan>'
-        line = words[n] + ' '
-      } else {
-        line = testLine
-      }
-    }
-  }
-
-  element.innerHTML += '<tspan x="0" dy="' + y + '">' + line + '</tspan>'
-  const testEl = document.getElementById('PROCESSING')
-  testEl ? testEl.remove() : null
-}
-
 interface Props {
   text: string
 }
@@ -59,10 +29,14 @@ interface Props {
 const SvgTitleRecipe: React.FC<Props> = ({ text }) => {
   const idWrapperRef = useRef<string>(v4())
   const idTitleRef = useRef<string>(v4())
+  const idSvgRef = useRef<string>(v4())
+
+  const { tspanHeight, onChangeTspanHeight } = React.useContext(RecipeContext)
+  console.log(tspanHeight)
+
   const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
   const [state, setState] = useState({
-    textHeight: 0,
     viewportWidth
   })
 
@@ -71,14 +45,36 @@ const SvgTitleRecipe: React.FC<Props> = ({ text }) => {
     setState(state => ({ ...state, viewportWidth: newViewportWidth }))
   })
 
+  const getElHeight = () => {
+    const svg = document.getElementById(idSvgRef.current)
+
+    const textTestSvg = d3
+      .select(svg)
+      .append('text')
+      .attr('id', 'textTest')
+
+    textTestSvg
+      .append('tspan')
+      .attr('id', 'tspanTest')
+      .text('prova')
+      .style('opacity', 0)
+
+    const textTest = document.getElementById('textTest')
+    const tspanTest = document.getElementById('tspanTest')
+
+    if (textTest && tspanTest) {
+      const elHeight = tspanTest.getBoundingClientRect().height
+
+      onChangeTspanHeight(elHeight)
+
+      textTest.remove()
+    }
+  }
+
   useEffect(() => {
     window.addEventListener('resize', handleResize.current)
 
-    const textSvgElement = document.getElementById(idTitleRef.current)
-
-    if (textSvgElement) {
-      svgTextMultiline(textSvgElement, state.viewportWidth, state.textHeight - 20)
-    }
+    getElHeight()
 
     return () => {
       window.removeEventListener('resize', handleResize.current)
@@ -86,20 +82,26 @@ const SvgTitleRecipe: React.FC<Props> = ({ text }) => {
   }, [])
 
   useEffect(() => {
-    const title = document.getElementById(idTitleRef.current)
-    if (title) {
-      const height = title.getBoundingClientRect().height
-      setState({ ...state, textHeight: height })
-    }
+    getElHeight()
   }, [state.viewportWidth])
 
-  const xPosition = state.viewportWidth >= 2030 ? -30 : state.viewportWidth >= 1760 ? -25 : -20
+  const buildWordsGroup = (text: string, viewportWidth: number) => {
+    const initialWords = text.split(' ')
+
+    return initialWords
+  }
+
+  const xPosition = viewportWidth >= 2030 ? -20 : viewportWidth >= 1760 ? -15 : -10
 
   return (
     <Wrapper id={idWrapperRef.current}>
-      <svg height={state.textHeight} width="100vw">
-        <text x={xPosition} y={state.textHeight - 20} id={idTitleRef.current} dominantBaseline="start">
-          {text}
+      <svg height="100vh" width="100vw" id={idSvgRef.current}>
+        <text x={0} id={idTitleRef.current} dominantBaseline="start">
+          {buildWordsGroup(text, state.viewportWidth).map((word, i) => (
+            <tspan key={i} x={xPosition} dy={tspanHeight}>
+              {word}
+            </tspan>
+          ))}
         </text>
       </svg>
     </Wrapper>

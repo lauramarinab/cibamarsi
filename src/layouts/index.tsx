@@ -19,37 +19,39 @@ interface StaticQueryProps {
   }
 }
 
-const IndexLayout: React.FC = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query IndexLayoutQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            keywords
+const IndexLayout: React.FC = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query IndexLayoutQuery {
+          site {
+            siteMetadata {
+              title
+              description
+              keywords
+            }
           }
         }
-      }
-    `}
-    render={(data: StaticQueryProps) => (
-      <LayoutRoot>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { name: 'keywords', content: data.site.siteMetadata.keywords }
-          ]}
-        />
-        <Helmet>
-          <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
-          <link rel="shortcut icon" href={favicon} />
-        </Helmet>
-        <LayoutMain>{children}</LayoutMain>
-      </LayoutRoot>
-    )}
-  />
-)
+      `}
+      render={(data: StaticQueryProps) => (
+        <LayoutRoot>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              { name: 'description', content: data.site.siteMetadata.description },
+              { name: 'keywords', content: data.site.siteMetadata.keywords }
+            ]}
+          />
+          <Helmet>
+            <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
+            <link rel="shortcut icon" href={favicon} />
+          </Helmet>
+          <LayoutMain>{children}</LayoutMain>
+        </LayoutRoot>
+      )}
+    />
+  )
+}
 
 export default IndexLayout
