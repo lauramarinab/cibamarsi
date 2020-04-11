@@ -1,10 +1,11 @@
 'use strict'
 
 module.exports = {
+  pathPrefix: '/cibamarsi',
   siteMetadata: {
     title: 'cibamarsi',
     description: 'cibarsi-amarsi',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
+    keywords: ['cibamarsi', 'ricetta', 'ricetta', 'imparare', 'cucinare'],
     siteUrl: 'https://lauramarinab.github.io/cibamarsi',
     author: {
       name: 'Laura Marina Bianchi',
@@ -54,6 +55,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components'
   ]
 }

@@ -1,34 +1,24 @@
 import * as React from 'react'
 
-const RecipeContext = React.createContext<{
+type RecipeContext = {
   tspanHeight: number
   onChangeTspanHeight: (height: number) => void
-}>({
-  tspanHeight: 0,
-  onChangeTspanHeight: (tspanHeight: number) => console.log('onChangeSpanHeight')
-})
-
-interface State {
-  tspanHeight: number
 }
 
+const RecipeContext = React.createContext<RecipeContext>({} as RecipeContext)
+
 const RecipeProvider: React.FC = ({ children }) => {
-  const [state, setState] = React.useState<State>({
-    tspanHeight: 0
-  })
+  const [tspanHeight, setTspanHeight] = React.useState<number>(0)
 
   const onChangeTspanHeight = (tspanHeight: number) => {
-    setState(state => ({
-      ...state,
-      tspanHeight
-    }))
+    setTspanHeight(tspanHeight)
   }
 
   return (
     <RecipeContext.Provider
       value={{
-        ...state,
-        onChangeTspanHeight: onChangeTspanHeight
+        tspanHeight,
+        onChangeTspanHeight
       }}
     >
       {children}

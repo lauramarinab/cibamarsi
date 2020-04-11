@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { FrontmatterRecipe } from '../type/FrontmatterRecipe'
 import { sortBy } from 'lodash'
-import SvgTitleRecipe from '../components/SvgTitleRecipe'
+import TitleRecipe from '../components/TitleRecipe'
 import { MarqueeRecipe } from '../UI/MarqueeRecipe'
 import { ProvidersWrapper } from '../providers/ProvidersWrapper'
 
@@ -41,8 +41,7 @@ const Recipe: React.FC<{ data: PageTemplateProps }> = ({ data }) => {
           ]}
         />
         <MarqueeRecipe groupWords={[recipe.frontmatter.difficulty, recipe.frontmatter.title, recipe.frontmatter.category]} />
-        <SvgTitleRecipe text={recipe.frontmatter.title} />
-        <p>{recipe.frontmatter.difficulty}</p>
+        <TitleRecipe text={recipe.frontmatter.title} />
         <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: recipe.html }} />
         {coverImage && <img style={{ width: 500 }} src={coverImage.url.childImageSharp.resize.src} />}
         {orderedProcessImages.length > 0 && (
