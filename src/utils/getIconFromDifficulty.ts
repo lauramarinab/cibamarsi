@@ -1,10 +1,10 @@
-export const getIconFromDifficulty = (difficulty: string) => {
-  switch (difficulty) {
-    case 'facilissimo':
-      return '🤗'
-    case 'facile':
-      return '😊'
-    case 'te devi impegnà':
-      return '😏'
+import { Difficulty } from '../types/Difficulty'
+
+export const getIconFromDifficulty = (difficulty: Difficulty) => {
+  const icons = {
+    [Difficulty.FACILISSIMO]: '🤗',
+    [Difficulty.FACILE]: '😊',
+    [Difficulty.DIFFICILE]: '😏'
   }
+  return icons[difficulty]
 }

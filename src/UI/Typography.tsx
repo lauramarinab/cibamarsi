@@ -15,7 +15,7 @@ const TitleRecipe = styled.h3`
   color: ${colors.rgb.blu};
 `
 
-const Difficulty = styled.h5`
+const DifficultyText = styled.h5`
   font-family: 'Fira Code Medium';
   font-size: 15px;
   color: ${colors.grigio.medium};
@@ -25,4 +25,4 @@ const LinkStyled = styled(Link)`
   text-decoration: none;
 `
 
-export { Dida, TitleRecipe, LinkStyled, Difficulty }
+export { Dida, TitleRecipe, LinkStyled, DifficultyText }

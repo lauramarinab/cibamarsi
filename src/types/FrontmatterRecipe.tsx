@@ -1,3 +1,6 @@
+import { Difficulty } from './Difficulty'
+import { Category } from './Category'
+
 export interface ChildImageSharp {
   childImageSharp: {
     resize: {
@@ -19,9 +22,9 @@ export interface FrontmatterRecipe {
   title: string
   description: string
   date: string
-  difficulty: string
+  difficulty: Difficulty
   servings?: number
-  category: string
+  category: Category
   tags: Array<string>
   ingredients: Array<string>
   image: Array<Image>

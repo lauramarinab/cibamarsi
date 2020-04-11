@@ -3,7 +3,7 @@ title: Pasta al pomodoro
 description: pasta al pomodoro
 date: '2018-09-28'
 category: primi
-difficulty: 'facilissimo'
+difficulty: 'FACILISSIMO'
 tags: ['tradizione', 'italiana']
 servings: 2
 ingredients: ['pomodorini pachino', 'olio extra vergine di oliva', 'sale q.b.']

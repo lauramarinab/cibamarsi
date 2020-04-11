@@ -3,7 +3,7 @@ title: Salatini - pizzettine
 description: lorem ipsum
 date: '2018-09-28'
 category: 'antipasti'
-difficulty: 'facilissimo'
+difficulty: 'FACILISSIMO'
 tags: ['italiana', 'deliziose']
 ingredients: ['pasta sfoglia pronta', 'passata di pomodorono', 'mozzarella per pizza']
 image: [{ type: 'cover', url: 'space-copy.jpg' }, { type: 'process', position: 0, url: 'space-copy.jpg' }]

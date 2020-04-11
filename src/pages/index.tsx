@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import IndexLayout from '../layouts'
 import styled from 'styled-components'
 import CategoriesMenu from '../components/CategoriesMenu'
-import { EdgeNodeRecipe } from '../type/EdgeNodeRecipe'
+import { EdgeNodeRecipe } from '../types/EdgeNodeRecipe'
 import Cibamarsi from '../UI/Cibamarsi'
 import RecipeCard from '../components/RecipeCard/RecipeCard'
 import { randomNumber } from '../utils/randomNumber'
@@ -42,6 +42,8 @@ const IndexPage: React.FC<Props> = ({ data }) => {
   const secondRandomRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
 
   const magicRecipe = React.useRef<EdgeNodeRecipe>(recipes[randomNumber(recipes.length - 1, 0)])
+
+  console.log(firstRandomRecipe.current)
 
   return (
     <IndexLayout>

@@ -3,6 +3,7 @@ import { Dida, LinkStyled } from '../UI/Typography'
 import { sortBy } from 'lodash'
 import PostIt from './PostIt/PostIt'
 import { colors } from '../styles/variables'
+import { Category } from '../types/Category'
 
 interface Props {
   categories: Array<{ fieldValue: string }>
@@ -12,14 +13,10 @@ interface Props {
 }
 
 const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) => {
-  const categoryList = [
-    { name: 'antipasti', position: 1 },
-    { name: 'primi', position: 2 },
-    { name: 'secondi', position: 3 },
-    { name: 'dolci', position: 4 },
-    { name: 'piatti unici', position: 5 },
-    { name: 'frullati', position: 6 }
-  ]
+  const categoryList = Object.values(Category).map((categoryName, index) => ({
+    name: categoryName,
+    position: index
+  }))
 
   const orderedCategory = sortBy(
     categories.map(c => {
@@ -52,18 +49,12 @@ const CategoriesMenu: React.FC<Props> = ({ categories, style, height, width }) =
             return (
               <LinkStyled
                 key={c.name}
-                to={`/category/${
-                  c.name === 'undefined'
-                    ? 'uncategorized'
-                    : c.name
-                        .toLowerCase()
-                        .trim()
-                        .replace(' ', '-')
-                }/`}
+                to={`/category/${c.name
+                  .toLowerCase()
+                  .trim()
+                  .replace(' ', '-')}/`}
               >
-                <Dida style={{ marginTop: 5, fontSize: 23, whiteSpace: 'nowrap', color: colors.bianco }}>
-                  {c.name === 'undefined' ? 'Uncategorized' : c.name}
-                </Dida>
+                <Dida style={{ marginTop: 5, fontSize: 23, whiteSpace: 'nowrap', color: colors.bianco }}>{c.name}</Dida>
               </LinkStyled>
             )
           })}

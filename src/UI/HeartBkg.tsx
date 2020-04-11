@@ -72,8 +72,6 @@ const HeartBkg: React.FC = () => {
     }
   }, [hearthOver])
 
-  console.log(hearthOver)
-
   return (
     <Wrapper heartOver={hearthOver} onMouseOver={() => setHover(true)}>
       🖤

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { EdgeNodeRecipe } from '../type/EdgeNodeRecipe'
+import { EdgeNodeRecipe } from '../types/EdgeNodeRecipe'
 import { LinkStyled } from '../UI/Typography'
 
 const RecipeList: React.FC<{ recipes: Array<EdgeNodeRecipe> }> = ({ recipes }) => {

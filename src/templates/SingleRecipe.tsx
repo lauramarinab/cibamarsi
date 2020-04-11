@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { FrontmatterRecipe } from '../type/FrontmatterRecipe'
+import { FrontmatterRecipe } from '../types/FrontmatterRecipe'
 import { sortBy } from 'lodash'
 import TitleRecipe from '../components/TitleRecipe'
 import { MarqueeRecipe } from '../UI/MarqueeRecipe'

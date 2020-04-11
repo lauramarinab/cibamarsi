@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import RecipeList from '../components/RecipeList'
-import { EdgeNodeRecipe } from '../type/EdgeNodeRecipe'
+import { EdgeNodeRecipe } from '../types/EdgeNodeRecipe'
 
 interface IndexPageProps {
   data: {
